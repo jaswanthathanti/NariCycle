@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Calendar, Activity, BarChart2, Bell, MapPin, Settings, LogOut, Heart } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
+import logo from '../../assets/logo.png';
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -32,8 +33,8 @@ const Sidebar = () => {
       {/* Logo */}
       <div className="h-20 flex items-center px-6 border-b border-slate-100">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white">
-            <Heart size={16} fill="white" />
+          <div className="w-8 h-8 overflow-hidden rounded-full flex items-center justify-center">
+            <img src={logo} alt="NariCycle Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-heading font-bold text-xl text-slate-900 tracking-tight">
             Nari<span className="text-primary-600">Cycle</span>

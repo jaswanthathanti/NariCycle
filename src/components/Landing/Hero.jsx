@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MessageCircle, CalendarDays, AlertTriangle, MapPin, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../../context/AuthContext';
 
 const Hero = () => {
   const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-primary-50/50 to-white pt-16 pb-24 lg:pt-32 lg:pb-32">
@@ -41,7 +43,7 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link to="/dashboard" className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+              <Link to={isAuthenticated ? "/dashboard" : "/login"} className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                 🚀 {t('common.get_started')} <ArrowRight size={20} />
               </Link>
               <a href="#features" className="inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-white text-slate-700 font-semibold border-2 border-slate-200 hover:border-primary-300 hover:text-primary-600 transition-all">

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../Shared/LanguageSelector';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -24,8 +25,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white shadow-md">
-                <Heart size={24} fill="white" />
+              <div className="w-10 h-10 overflow-hidden rounded-full flex items-center justify-center shadow-md">
+                <img src={logo} alt="NariCycle Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-heading font-bold text-2xl text-slate-900 tracking-tight">
                 Nari<span className="text-primary-600">Cycle</span>
@@ -70,7 +71,6 @@ const Navbar = () => {
 
             <a href="#about" className="text-slate-600 hover:text-primary-600 font-medium transition-colors">{t('nav.about')}</a>
             <a href="#features" className="text-slate-600 hover:text-primary-600 font-medium transition-colors">{t('nav.features')}</a>
-            <a href="#contact" className="text-slate-600 hover:text-primary-600 font-medium transition-colors">Contact</a>
             <a href="#sos" className="text-health-red hover:text-red-700 font-bold transition-colors flex items-center gap-1">🚨 SOS</a>
             
             <LanguageSelector />
@@ -134,7 +134,6 @@ const Navbar = () => {
 
             <a href="#about" className="block px-3 py-3 rounded-md text-base font-medium text-slate-800 hover:text-primary-600 hover:bg-primary-50">{t('nav.about')}</a>
             <a href="#features" className="block px-3 py-3 rounded-md text-base font-medium text-slate-800 hover:text-primary-600 hover:bg-primary-50">{t('nav.features')}</a>
-            <a href="#contact" className="block px-3 py-3 rounded-md text-base font-medium text-slate-800 hover:text-primary-600 hover:bg-primary-50">Contact</a>
             <a href="#sos" className="block px-3 py-3 rounded-md text-base font-bold text-health-red hover:bg-red-50">🚨 SOS Emergency</a>
             
             <div className="py-4">
